@@ -15,6 +15,10 @@
 		BB2861EB2C86689000C7EC15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2861EA2C86689000C7EC15 /* Assets.xcassets */; };
 		BB2861EE2C86689000C7EC15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2861ED2C86689000C7EC15 /* Preview Assets.xcassets */; };
 		BB2861F92C86689100C7EC15 /* XR_AVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2861F82C86689100C7EC15 /* XR_AVPTests.swift */; };
+		BB2862032C8673AD00C7EC15 /* Entity+Sunlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862022C8673AD00C7EC15 /* Entity+Sunlight.swift */; };
+		BB28620C2C867EAF00C7EC15 /* PortalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28620B2C867EAF00C7EC15 /* PortalViewModel.swift */; };
+		BB28620E2C867F0F00C7EC15 /* InteractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */; };
+		BB2862112C867F5000C7EC15 /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862102C867F5000C7EC15 /* PortalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,10 @@
 		BB2861EF2C86689000C7EC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB2861F42C86689100C7EC15 /* XR_AVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XR_AVPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2861F82C86689100C7EC15 /* XR_AVPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XR_AVPTests.swift; sourceTree = "<group>"; };
+		BB2862022C8673AD00C7EC15 /* Entity+Sunlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+Sunlight.swift"; sourceTree = "<group>"; };
+		BB28620B2C867EAF00C7EC15 /* PortalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewModel.swift; sourceTree = "<group>"; };
+		BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewModel.swift; sourceTree = "<group>"; };
+		BB2862102C867F5000C7EC15 /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,9 @@
 				BB2861E22C86688E00C7EC15 /* XR_AVPApp.swift */,
 				BB2861E42C86688E00C7EC15 /* ContentView.swift */,
 				BB2861E62C86688E00C7EC15 /* ImmersiveView.swift */,
+				BB28620F2C867F4500C7EC15 /* View */,
+				BB28620A2C867E8E00C7EC15 /* ViewModel */,
+				BB2862122C86812A00C7EC15 /* Entities */,
 				BB2861E82C86688E00C7EC15 /* ImageBasedLighting.skybox */,
 				BB2861EA2C86689000C7EC15 /* Assets.xcassets */,
 				BB2861EF2C86689000C7EC15 /* Info.plist */,
@@ -115,6 +126,31 @@
 				BB2861F82C86689100C7EC15 /* XR_AVPTests.swift */,
 			);
 			path = XR_AVPTests;
+			sourceTree = "<group>";
+		};
+		BB28620A2C867E8E00C7EC15 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB28620B2C867EAF00C7EC15 /* PortalViewModel.swift */,
+				BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB28620F2C867F4500C7EC15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB2862102C867F5000C7EC15 /* PortalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB2862122C86812A00C7EC15 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				BB2862022C8673AD00C7EC15 /* Entity+Sunlight.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +259,10 @@
 			files = (
 				BB2861E52C86688E00C7EC15 /* ContentView.swift in Sources */,
 				BB2861E32C86688E00C7EC15 /* XR_AVPApp.swift in Sources */,
+				BB2862112C867F5000C7EC15 /* PortalView.swift in Sources */,
+				BB28620C2C867EAF00C7EC15 /* PortalViewModel.swift in Sources */,
+				BB28620E2C867F0F00C7EC15 /* InteractionViewModel.swift in Sources */,
+				BB2862032C8673AD00C7EC15 /* Entity+Sunlight.swift in Sources */,
 				BB2861E72C86688E00C7EC15 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
