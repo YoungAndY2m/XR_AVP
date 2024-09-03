@@ -13,7 +13,6 @@ struct ContentView: View {
     
     // Window related
     @Environment(\.openWindow) var openWindow
-    @Environment(\.dismissWindow) var dismissWindow
     
     var body: some View {
         VStack {

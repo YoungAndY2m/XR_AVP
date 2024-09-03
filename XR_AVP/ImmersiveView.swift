@@ -11,9 +11,6 @@ import RealityKitContent
 
 struct ImmersiveView: View {
     
-    @Environment(\.openWindow) var openWindow
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    
     var body: some View {
         VStack (spacing: 12) {
             RealityView { content in
@@ -29,19 +26,45 @@ struct ImmersiveView: View {
                     immersiveContentEntity.components.set(iblComponent)
                     immersiveContentEntity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: immersiveContentEntity))
                 }
-            }
-            
-            Button("Exit Immersive Space") {
-                Task {
-                    await dismissImmersiveSpace()
-                    openWindow(id: "Home")
+                
+                // Add SkyBox entity
+                guard let skyBoxEntity = createSkybox() else {
+                    print("Error loading skybox entity")
+                    return
                 }
+                content.add(skyBoxEntity)
             }
-            .padding()
-            .background(Color.black)
-            .cornerRadius(10)
-            .foregroundColor(.white)
         }
+    }
+    
+    private func createSkybox () -> Entity? {
+        // Mesh
+        let largeSphere = MeshResource.generateSphere(radius: 1000)
+        
+        // Material
+        var skyBoxMaterial = UnlitMaterial()
+        
+        // Add texture
+        do {
+            let texture = try TextureResource.load(named: "StarryNight")
+            skyBoxMaterial.color = .init(texture: .init(texture))
+        } catch {
+            print("Error loading texture: \(error)")
+        }
+        
+        // SkyBox Entity
+        let skyBoxEntity = Entity()
+        skyBoxEntity.components.set(
+            ModelComponent(
+                mesh: largeSphere,
+                materials: [skyBoxMaterial]
+            )
+        )
+        
+        // Map texture to inner surface
+        skyBoxEntity.scale *= .init(x: -1, y: 1, z: 1)
+        
+        return skyBoxEntity
     }
 }
 

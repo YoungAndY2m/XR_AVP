@@ -20,6 +20,7 @@
 		BB28620E2C867F0F00C7EC15 /* InteractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */; };
 		BB2862112C867F5000C7EC15 /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862102C867F5000C7EC15 /* PortalView.swift */; };
 		BB2862152C86976200C7EC15 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862142C86976200C7EC15 /* Portal.swift */; };
+		BB2862172C87440300C7EC15 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862162C87440300C7EC15 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewModel.swift; sourceTree = "<group>"; };
 		BB2862102C867F5000C7EC15 /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
 		BB2862142C86976200C7EC15 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
+		BB2862162C87440300C7EC15 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				BB2862102C867F5000C7EC15 /* PortalView.swift */,
+				BB2862162C87440300C7EC15 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				BB2861E52C86688E00C7EC15 /* ContentView.swift in Sources */,
 				BB2862152C86976200C7EC15 /* Portal.swift in Sources */,
 				BB2861E32C86688E00C7EC15 /* XR_AVPApp.swift in Sources */,
+				BB2862172C87440300C7EC15 /* SettingView.swift in Sources */,
 				BB2862112C867F5000C7EC15 /* PortalView.swift in Sources */,
 				BB28620C2C867EAF00C7EC15 /* PortalViewModel.swift in Sources */,
 				BB28620E2C867F0F00C7EC15 /* InteractionViewModel.swift in Sources */,

@@ -15,7 +15,7 @@ struct PortalView: View {
     
     @State private var showImmersiveSpace = false
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.openWindow) var openWindow
     @Environment(\.dismissWindow) var dismissWindow
     
     var body: some View {
@@ -34,12 +34,30 @@ struct PortalView: View {
                         .fill(color.opacity(0.3))
                 )
                 .animation(.easeInOut, value: portal.portalScale)
-                .onTapGesture {
-                    portal.expand()
-                    if portal.isPortalFullyOpened {
-                        showImmersiveSpace = true
+                .gesture(
+                    MagnificationGesture()
+                        .onChanged { value in
+                            let newScale = portal.portalScale * value
+                            // MARK: based on the scale to enlarge/collapse
+                            if newScale >= 1.0 && newScale <= 3.0 {
+                                portal.portalScale = newScale
+                            }
+                        }
+                        .onEnded { _ in
+                            if portal.portalScale >= 3.0 {
+                                portal.isPortalFullyOpened = true
+                                showImmersiveSpace = true
+                            }
+                        }
+                )
+                .gesture(
+                    TapGesture().onEnded {
+                        portal.expand()
+                        if portal.isPortalFullyOpened {
+                            showImmersiveSpace = true
+                        }
                     }
-                }
+                )
         }
         .onAppear {
             portal.reset()
@@ -51,6 +69,7 @@ struct PortalView: View {
                     dismissWindow(id: "Home")
                     dismissWindow(id: "Portal 1")
                     dismissWindow(id: "Portal 2")
+                    openWindow(id: "Settings")
                 }
             }
         }
