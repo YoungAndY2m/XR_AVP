@@ -19,6 +19,7 @@
 		BB28620C2C867EAF00C7EC15 /* PortalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28620B2C867EAF00C7EC15 /* PortalViewModel.swift */; };
 		BB28620E2C867F0F00C7EC15 /* InteractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */; };
 		BB2862112C867F5000C7EC15 /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862102C867F5000C7EC15 /* PortalView.swift */; };
+		BB2862152C86976200C7EC15 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2862142C86976200C7EC15 /* Portal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		BB28620B2C867EAF00C7EC15 /* PortalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewModel.swift; sourceTree = "<group>"; };
 		BB28620D2C867F0F00C7EC15 /* InteractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewModel.swift; sourceTree = "<group>"; };
 		BB2862102C867F5000C7EC15 /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
+		BB2862142C86976200C7EC15 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				BB2861E62C86688E00C7EC15 /* ImmersiveView.swift */,
 				BB28620F2C867F4500C7EC15 /* View */,
 				BB28620A2C867E8E00C7EC15 /* ViewModel */,
+				BB2862132C86975300C7EC15 /* Model */,
 				BB2862122C86812A00C7EC15 /* Entities */,
 				BB2861E82C86688E00C7EC15 /* ImageBasedLighting.skybox */,
 				BB2861EA2C86689000C7EC15 /* Assets.xcassets */,
@@ -151,6 +154,14 @@
 				BB2862022C8673AD00C7EC15 /* Entity+Sunlight.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		BB2862132C86975300C7EC15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB2862142C86976200C7EC15 /* Portal.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB2861E52C86688E00C7EC15 /* ContentView.swift in Sources */,
+				BB2862152C86976200C7EC15 /* Portal.swift in Sources */,
 				BB2861E32C86688E00C7EC15 /* XR_AVPApp.swift in Sources */,
 				BB2862112C867F5000C7EC15 /* PortalView.swift in Sources */,
 				BB28620C2C867EAF00C7EC15 /* PortalViewModel.swift in Sources */,

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PortalView: View {
-    @EnvironmentObject var vm: InteractionViewModel
+    @ObservedObject var portal: Portal
+    var color: Color
     
     var body: some View {
         ZStack {
@@ -18,20 +19,20 @@ struct PortalView: View {
             
             // Expand while interacting
             Circle()
-                .strokeBorder(Color.blue, lineWidth: 5)
-                .frame(width: 200 * vm.portalVM.portalScale, height: 200 * vm.portalVM.portalScale)
-                .shadow(color: .purple, radius: 10)
+                .strokeBorder(color, lineWidth: 5)
+                .frame(width: 200 * portal.portalScale, height: 200 * portal.portalScale)
+                .shadow(color: color, radius: 10)
                 .overlay(
                     Circle()
-                        .fill(Color.purple.opacity(0.3))
+                        .fill(color.opacity(0.3))
                 )
-                .animation(.easeInOut, value: vm.portalVM.portalScale)
+                .animation(.easeInOut, value: portal.portalScale)
                 .onTapGesture {
-                    vm.handleUserInteraction()
+                    portal.expand()
                 }
             
-            // TODO: alert while portal is fully opened
-            if vm.portalVM.isPortalFullyOpened {
+            // AR -> VR
+            if portal.isPortalFullyOpened {
                 Text("Portal Fully Opened")
                     .font(.largeTitle)
                     .foregroundColor(.white)
@@ -39,13 +40,12 @@ struct PortalView: View {
             }
         }
         .onAppear {
-            vm.portalVM.resetPortal()
+            portal.reset()
         }
     }
 }
 
-
 #Preview {
-    return PortalView()
-        .environmentObject(InteractionViewModel())
+    let portal = Portal()
+    return PortalView(portal: portal, color: .blue)
 }

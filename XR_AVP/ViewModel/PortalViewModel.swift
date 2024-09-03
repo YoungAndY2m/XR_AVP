@@ -9,34 +9,38 @@ import SwiftUI
 import Combine
 
 class PortalViewModel: ObservableObject {
-    // Portal attributes
-    @Published var portalScale: CGFloat = 1.0
-    @Published var isPortalFullyOpened: Bool = false
-    @Published var isTransitioningToVR: Bool = false
+    @Published var portals: [Portal] = []
+    @Published var favoritePortalList: [Portal] = []
     
-    // Portal scale changing
-    func expandPortal() {
-        withAnimation {
-            if portalScale < 3.0 { // TODO: boundary: 3.0
-                portalScale += 0.5
-            } else {
-                isPortalFullyOpened = true
-            }
+    init(portalCount: Int) {
+        for _ in 0..<portalCount {
+            portals.append(Portal())
         }
     }
     
-    // Reset
-    func resetPortal() {
-        portalScale = 1.0
-        isPortalFullyOpened = false
-        isTransitioningToVR = false
+    // Personal updates
+    func addFavoritePortal(_ portal: Portal) {
+        if !favoritePortalList.contains(where: { $0.id == portal.id }) {
+            favoritePortalList.append(portal)
+        }
     }
     
-    // AR -> VR
-    func triggerVRTransition() {
-        if isPortalFullyOpened {
-            isTransitioningToVR = true
+    func removeFavoritePortal(_ portal: Portal) {
+        favoritePortalList.removeAll { $0.id == portal.id }
+    }
+    
+    func toggleFavoritePortal(_ portal: Portal) {
+        portal.toggleFavorite()
+        if portal.isFavorite {
+            addFavoritePortal(portal)
+        } else {
+            removeFavoritePortal(portal)
         }
+    }
+    
+    // All portals
+    func resetAllPortals() {
+        portals.forEach { $0.reset() }
     }
 }
 

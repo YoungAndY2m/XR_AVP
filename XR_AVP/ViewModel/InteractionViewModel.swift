@@ -10,16 +10,24 @@ import Combine
 
 class InteractionViewModel: ObservableObject {
     @Published var isInteracting: Bool = false
-    var portalVM: PortalViewModel = PortalViewModel()
+    @Published var selectedPortal: Portal?
+    var portalVM: PortalViewModel
+    
+    // Initialize portalCount
+    init(portalCount: Int) {
+        self.portalVM = PortalViewModel(portalCount: portalCount)
+    }
     
     // User interaction
-    func handleUserInteraction() {
+    func handleUserInteraction(with portal: Portal) {
         isInteracting = true
-        self.portalVM.expandPortal()
+        selectedPortal = portal
+        selectedPortal?.expand()
     }
     
     func stopInteraction() {
         isInteracting = false
+        selectedPortal = nil
     }
 }
 
