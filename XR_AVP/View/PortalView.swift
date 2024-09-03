@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PortalView: View {
+    
     @ObservedObject var portal: Portal
     var color: Color
+    
+    @State private var showImmersiveSpace = false
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.dismissWindow) var dismissWindow
     
     var body: some View {
         ZStack {
@@ -29,18 +36,23 @@ struct PortalView: View {
                 .animation(.easeInOut, value: portal.portalScale)
                 .onTapGesture {
                     portal.expand()
+                    if portal.isPortalFullyOpened {
+                        showImmersiveSpace = true
+                    }
                 }
-            
-            // AR -> VR
-            if portal.isPortalFullyOpened {
-                Text("Portal Fully Opened")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding()
-            }
         }
         .onAppear {
             portal.reset()
+        }
+        .onChange(of: showImmersiveSpace) { _, newValue in
+            Task {
+                if newValue {
+                    await openImmersiveSpace(id: "ImmersiveSpace")
+                    dismissWindow(id: "Home")
+                    dismissWindow(id: "Portal 1")
+                    dismissWindow(id: "Portal 2")
+                }
+            }
         }
     }
 }
