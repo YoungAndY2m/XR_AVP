@@ -37,6 +37,7 @@ struct ImmersiveView: View {
         }
     }
     
+    // Skybox Entity
     private func createSkybox () -> Entity? {
         // Mesh
         let largeSphere = MeshResource.generateSphere(radius: 1000)
